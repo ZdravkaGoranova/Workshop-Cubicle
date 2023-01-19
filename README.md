@@ -1,2 +1,2 @@
-# Workshop-Cubicle-
+# Workshop-Cubicle
 Workshop: Course Prodject
