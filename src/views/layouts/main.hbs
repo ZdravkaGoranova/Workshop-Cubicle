@@ -3,16 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main layout</title>
+    <title>Cubicle</title>
+    <link href="/css/site.css" type="text/css" rel="stylesheet">
+    <link rel='shortcut icon' type='image/x-icon' href='/images/favicon.png' />
 </head>
 
 <body>
-    <h1>Main layout</h1>
+    <div class="container">
+        <header>
+            <ul>
+                <li><img class="logo" src="/images/logo.png"></li>
+                <li><a href="/">Browse</a></li>
+                <li><a href="/create">Add a Cube</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </header>
+        
+        {{{body}}}
 
-    {{{body}}}
-
+    </div>
+    <footer>@Cubicle: Exercise for Express.js and Handlebars</footer>
 </body>
 
 </html>
