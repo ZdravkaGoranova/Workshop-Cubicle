@@ -8,6 +8,9 @@ const setupViewEngine = require('./config/viewEngine.js');
 setupViewEngine(app);
 // или require('./config/viewEngine.js')(app);
 
+app.use(express.static('src/public'));//проверяваме дали работи в browser http://localhost:5000/css/site.css
+
+
 app.get('/', (req, res) => {
     // res.send('Home page');
     res.render('home');//  res.render('home', { layout: false })когато не сме настойли layout
