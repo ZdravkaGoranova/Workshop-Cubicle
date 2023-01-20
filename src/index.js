@@ -1,6 +1,8 @@
 console.log("Starting my workshop :)");
 
 const express = require('express');
+
+const routes = require('./routes.js');
 const app = express();
 
 const config = require('./config');//Ако файла се казва различно име от index.js, примерно config.js->require('./config/config.js');
@@ -9,12 +11,6 @@ setupViewEngine(app);
 // или require('./config/viewEngine.js')(app);
 
 app.use(express.static('src/public'));//проверяваме дали работи в browser http://localhost:5000/css/site.css
-
-
-app.get('/', (req, res) => {
-    // res.send('Home page');
-    res.render('home');//  res.render('home', { layout: false })когато не сме настойли layout
-});
-
+app.use(routes);
 
 app.listen(config.PORT, () => console.log(`Server is running on port ${config.PORT}...`))
