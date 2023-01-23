@@ -23,4 +23,7 @@ router.get('/create', cubeControler.getCreateCube);
 //     res.render('create');
 // });
 
+router.post('/create', cubeControler.postCreateCube);
+
+
 module.exports = router;
