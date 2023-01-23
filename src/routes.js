@@ -24,6 +24,8 @@ router.get('/create', cubeControler.getCreateCube);
 // });
 router.post('/create', cubeControler.postCreateCube);
 
-router.get('/details/:cubeId',cubeControler.getDetails)
+router.get('/details/:cubeId',cubeControler.getDetails);
+
+router.get('/404',homeController.getErrorPage);
 
 module.exports = router;

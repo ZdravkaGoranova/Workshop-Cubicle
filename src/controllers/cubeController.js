@@ -19,15 +19,15 @@ exports.getDetails = (req, res) => {
     let cubeId = Number(req.params.cubeId);// let cube = db.cubes.find(x => x.id == req.params.cubeId)
 
     if (!cubeId) {// в случай,че нямаме id=0
-        return res.redirect('404');
+        return res.redirect('/404');
     }
     let cube = db.cubes.find(x => x.id === cubeId);
     if (!cube) {
-        return res.redirect('404');
+        return res.redirect('/404');
     }
-
     res.render('details', { cube })
 };
+
 
 // module.exports = {
 //     getCreateCube,
