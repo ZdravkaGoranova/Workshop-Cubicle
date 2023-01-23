@@ -22,8 +22,8 @@ router.get('/create', cubeControler.getCreateCube);
 // app.get('/create', (req, res) => {
 //     res.render('create');
 // });
-
 router.post('/create', cubeControler.postCreateCube);
 
+router.get('/details/:cubeId',cubeControler.getDetails)
 
 module.exports = router;
