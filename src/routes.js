@@ -4,15 +4,19 @@ const router = require('express').Router();
 // const router = Router();
 
 const cubeControler = require('./controllers/cubeController.js');
+const homeController = require('./controllers/homeController.js')
 
-router.get('/', (req, res) => {//Заместваме 'app'  с 'router'app.get('/', (req, res) => {
+router.get('/', homeController.getHomePage
+    //(req, res) => {//Заместваме 'app'  с 'router'app.get('/', (req, res) => {
     // res.send('Home page');
-    res.render('index');//  res.render('home', { layout: false })когато не сме настойли layout
-});
+    // res.render('index');//  res.render('home', { layout: false })когато не сме настойли layout
+    //}
+);
 
-router.get('/about', (req, res) => {
-    res.render('about');
-});
+router.get('/about', homeController.getAboutPage);
+// (req, res) => {
+// res.render('about');
+// });
 
 router.get('/create', cubeControler.getCreateCube);
 // app.get('/create', (req, res) => {
