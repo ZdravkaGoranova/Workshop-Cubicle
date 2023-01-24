@@ -34,6 +34,13 @@
       "imageUrl": "https://www.m-g.com.au/wp-content/uploads/2022/07/CMY-CUBE.jpg",
       "difficultyLevel": "4",
       "id": 5
+    },
+    {
+      "name": "Rubik",
+      "description": "These 8 Rubik’s Cube Designs Are Way Cooler Than the Original",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEPKUgGbET1nS5FqAutblNEmNDqhlQwP6s2g&usqp=CAU",
+      "difficultyLevel": "6",
+      "id": 6
     }
   ]
 }
