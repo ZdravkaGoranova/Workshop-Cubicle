@@ -1,5 +1,4 @@
 ![CubefunkSpinGIF](https://user-images.githubusercontent.com/106737347/214911504-a5ac831e-88e5-41ee-baef-0cd858474dd2.gif)
-
 # Workshop Project : Cubicle 
 
 "Cubicle" is a place, where you can browse some of the most popular Rubik cubes in the world and add some new cubes that you have discovered. 
