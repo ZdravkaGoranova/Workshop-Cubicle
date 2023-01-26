@@ -17,27 +17,20 @@ The `index.js file` should require the exported mongoose connection (database) b
 
 Store the cubes inside a`/config/database.json`.
 
+# Routes views
 
-# Description
-# Dataset
-# Download Object
-# Installation
-# Setup
-
-
-
-## - Home Page
-![](/11.jpg)
-## - About Page
+## Home Page
+![](/7.jpg)
+## About Page
 
 ![](/2.jpg)
-## - Create Page
+## Create Page
 
 ![](/3.jpg)
-## - Details Page
+## Details Page
 
 ![](/4.jpg)
-## - Search Page
+## Search Page
 
 ![](/5.jpg)
 ## - Not Found Page
