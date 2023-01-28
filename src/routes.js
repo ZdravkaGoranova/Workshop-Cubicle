@@ -4,7 +4,8 @@ const router = require('express').Router();
 // const router = Router();
 
 const cubeControler = require('./controllers/cubeController.js');
-const homeController = require('./controllers/homeController.js')
+const homeController = require('./controllers/homeController.js');
+const accessoryController = require('./controllers/accessoryController.js');
 
 router.get('/', homeController.getHomePage
     //(req, res) => {//Заместваме 'app'  с 'router'app.get('/', (req, res) => {
@@ -22,10 +23,13 @@ router.get('/create', cubeControler.getCreateCube);
 // app.get('/create', (req, res) => {
 //     res.render('create');
 // });
+
 router.post('/create', cubeControler.postCreateCube);
 
-router.get('/details/:cubeId',cubeControler.getDetails);
+router.get('/details/:cubeId', cubeControler.getDetails);
 
-router.get('/404',homeController.getErrorPage);
+router.get('/404', homeController.getErrorPage);
+
+router.use('/accessory',accessoryController);
 
 module.exports = router;

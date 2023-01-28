@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const accessorySchema = new mongoose.Schema({
-    id: (ObjectId),
+    
     name: {
         type: String,
         required: true
@@ -19,7 +19,6 @@ const accessorySchema = new mongoose.Schema({
 
     },
     //cubes: (ObjectId, ref Cubes Model)
-
 });
 
 
