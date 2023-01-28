@@ -1,5 +1,4 @@
 ![CubefunkSpinGIF](https://user-images.githubusercontent.com/106737347/214911504-a5ac831e-88e5-41ee-baef-0cd858474dd2.gif)
-
 # Workshop Project : Cubicle 
 
 "Cubicle" is a place, where you can browse some of the most popular Rubik cubes in the world and add some new cubes that you have discovered. 
@@ -17,27 +16,20 @@ The `index.js file` should require the exported mongoose connection (database) b
 
 Store the cubes inside a`/config/database.json`.
 
+# Routes views
 
-# Description
-# Dataset
-# Download Object
-# Installation
-# Setup
-
-
-
-## - Home Page
-![](/11.jpg)
-## - About Page
+## Home Page
+![](/7.jpg)
+## About Page
 
 ![](/2.jpg)
-## - Create Page
+## Create Page
 
 ![](/3.jpg)
-## - Details Page
+## Details Page
 
 ![](/4.jpg)
-## - Search Page
+## Search Page
 
 ![](/5.jpg)
 ## - Not Found Page
