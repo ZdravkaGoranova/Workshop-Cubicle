@@ -17,13 +17,14 @@ exports.postCreateCube = async (req, res) => {
     //redirect
     res.redirect('/');
 };
-exports.getDetails = (req, res) => {
-    let cubeId = Number(req.params.cubeId);// let cube = db.cubes.find(x => x.id == req.params.cubeId)
+exports.getDetails = async (req, res) => {
+    // let cubeId = Number(req.params.cubeId);// let cube = db.cubes.find(x => x.id == req.params.cubeId)
+    // if (!cubeId) {// в случай,че нямаме id=0
+    //     return res.redirect('/404');
+    // }
 
-    if (!cubeId) {// в случай,че нямаме id=0
-        return res.redirect('/404');
-    }
-    let cube = db.cubes.find(x => x.id === cubeId);
+    const cube = await Cube.findById(req.params.cubeId).lean()
+
     if (!cube) {
         return res.redirect('/404');
     }
