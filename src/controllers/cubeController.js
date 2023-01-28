@@ -1,16 +1,18 @@
-const Cube = require('../models/Cube_old.js');
+//const Cube = require('../models/Cube_old.js');
+const Cube = require('../models/Cube.js');
+
 const db = require('../db.json');
 
 exports.getCreateCube = (req, res) => {//const getCreateCube = (req, res) =>
     res.render('create');
 };
-exports.postCreateCube = (req, res) => {
+exports.postCreateCube = async (req, res) => {
     // console.log(req.body);//Object на данните от url
 
     //save cube
     const { name, description, imageUrl, difficultyLevel } = req.body
-    let cube = new Cube(name, description, imageUrl, difficultyLevel);
-    cube.save();
+    let cube = new Cube({ name, description, imageUrl, difficultyLevel });
+    await cube.save();//запазва в db
 
     //redirect
     res.redirect('/');
