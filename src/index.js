@@ -19,5 +19,5 @@ app.use(routes);
 initDataBase()
 .then(()=>app.listen(config.PORT, () => console.log(`Server is running on port ${config.PORT}...`)))
 //ако не работи базата данни да не се стартира приложението
-.catch((err)=>console.error(err));
+.catch((err)=>console.error(err.message));
 
