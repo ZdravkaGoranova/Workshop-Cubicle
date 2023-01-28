@@ -5,8 +5,9 @@ exports.getHomePage = async (req, res) => {
     //console.log(req.query);
     const { search, from: difficultyFrom, to: diffficultyTo } = req.query;
 
-    let cubes = await Cube.find().lean();//.lean()=вземи всички кубове от db и ги направи обекти 
-    //let cubes = db.cubes;
+    let cubes = await Cube.find().lean();//let cubes = db.cubes;
+    //.lean()->вземи всички кубове от db и ги направи в чисти обекти 
+    // let cubes = await Cube.find() ->.find()  връща колекция от документи
 
     //TODO: Use db filtration instead of in memory filtering
     if (search) {
