@@ -13,26 +13,17 @@ router.get('/', homeController.getHomePage
     // res.render('index');//  res.render('home', { layout: false })когато не сме настойли layout
     //}
 );
-
 router.get('/about', homeController.getAboutPage);
-// (req, res) => {
-// res.render('about');
-// });
-
-router.get('/create', cubeControler.getCreateCube);
-// app.get('/create', (req, res) => {
-//     res.render('create');
-// });
-
-router.post('/create', cubeControler.postCreateCube);
-
-router.get('/cubes/:cubeId/details', cubeControler.getDetails);//път към детайла
-
+// (req, res) => {res.render('about');});
 router.get('/404', homeController.getErrorPage);
 
+
+router.get('/cubes/create', cubeControler.getCreateCube);// app.get('/create', (req, res) => { res.render('create'); });
+router.post('/cubes/create', cubeControler.postCreateCube);
+router.get('/cubes/:cubeId/details', cubeControler.getDetails);//път към детайла
 router.get('/cubes/:cubeId/attach', cubeControler.getAttachAccessory);
 router.post('/cubes/:cubeId/attach', cubeControler.postAttachAccessory);
 
-router.use('/accessory', accessoryController);
+router.use('/accessories', accessoryController);
 
 module.exports = router;

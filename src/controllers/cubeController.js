@@ -42,12 +42,12 @@ exports.getAttachAccessory = async (req, res) => {
 }
 
 exports.postAttachAccessory = async (req, res) => {
-    const cube = await Cube.findById(req.params.cubeId);//това е документ и може да го променяме
+    const cube = await Cube.findById(req.params.cubeId);//това инстанция на модела, който наричаме  документ,който може да го променяме
     const accessoriId = req.body.accessory;
     //console.log(accessoriId);
     cube.accessories.push(accessoriId);
 
-    cube.save();
+    await cube.save();
 
     res.redirect(`/cubes/${cube._id}/details`);
 }
