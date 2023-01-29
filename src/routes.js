@@ -30,6 +30,8 @@ router.get('/details/:cubeId', cubeControler.getDetails);
 
 router.get('/404', homeController.getErrorPage);
 
+router.get('/cubes/:cubeId/attach', cubeControler.getAttachAccessory);
+
 router.use('/accessory',accessoryController);
 
 module.exports = router;
