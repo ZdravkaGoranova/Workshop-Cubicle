@@ -32,6 +32,6 @@ Store the cubes inside a`/config/database.json`.
 ## Search Page
 
 ![](/5.jpg)
-## - Not Found Page
+##  Not Found Page
 
 ![](/6.jpg)
