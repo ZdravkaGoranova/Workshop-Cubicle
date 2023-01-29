@@ -24,12 +24,13 @@ exports.getDetails = async (req, res) => {
     //     return res.redirect('/404');
     // }
 
-    const cube = await Cube.findById(req.params.cubeId).lean()
+    const cube = await Cube.findById(req.params.cubeId).populate('accessories').lean()
+    //взимаме даден куб с данните за аксецуарите му
 
     if (!cube) {
         return res.redirect('/404');
     }
-    res.render('details', { cube })
+    res.render('cube/details', { cube });
 };
 
 exports.getAttachAccessory = async (req, res) => {
