@@ -26,12 +26,13 @@ router.get('/create', cubeControler.getCreateCube);
 
 router.post('/create', cubeControler.postCreateCube);
 
-router.get('/details/:cubeId', cubeControler.getDetails);
+router.get('/cubes/:cubeId/details', cubeControler.getDetails);
 
 router.get('/404', homeController.getErrorPage);
 
 router.get('/cubes/:cubeId/attach', cubeControler.getAttachAccessory);
+router.post('/cubes/:cubeId/attach', cubeControler.postAttachAccessory);
 
-router.use('/accessory',accessoryController);
+router.use('/accessory', accessoryController);
 
 module.exports = router;

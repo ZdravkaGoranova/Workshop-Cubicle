@@ -35,12 +35,21 @@ exports.getDetails = async (req, res) => {
 exports.getAttachAccessory = async (req, res) => {
 
     const cube = await Cube.findById(req.params.cubeId).lean();
-
     const accessories = await Accessory.find().lean();
+
     res.render('cube/attach', { cube, accessories });
 }
 
+exports.postAttachAccessory = async (req, res) => {
+    const cube = await Cube.findById(req.params.cubeId);//това е документ и може да го променяме
+    const accessoriId = req.body.accessory;
+    //console.log(accessoriId);
+    cube.accessories.push(accessoriId);
 
+    cube.save();
+
+    res.redirect(`/cubes/${cube._id}/details`);
+}
 
 // module.exports = {
 //     getCreateCube,
