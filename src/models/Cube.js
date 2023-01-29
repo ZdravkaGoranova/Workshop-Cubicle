@@ -24,8 +24,8 @@ const cubeShema = new mongoose.Schema({//const cubeShema = new Schema
         max: 6,
     },
     accessories: [{
-        type: mongoose.Types.ObjectId,//всяко objectid Ще сочи към референция
-        ref:'Accessory'//името на модела към който ще сочи
+        type: mongoose.Types.ObjectId,//всяко objectid ще сочи към референция Accessory
+        ref:'Accessory'//името на модела към който ще сочи референцията
     }]
 
 
