@@ -26,7 +26,7 @@ router.get('/create', cubeControler.getCreateCube);
 
 router.post('/create', cubeControler.postCreateCube);
 
-router.get('/cubes/:cubeId/details', cubeControler.getDetails);
+router.get('/cubes/:cubeId/details', cubeControler.getDetails);//път към детайла
 
 router.get('/404', homeController.getErrorPage);
 
