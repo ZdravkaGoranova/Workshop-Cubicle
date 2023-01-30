@@ -37,16 +37,10 @@ Store the cubes inside a`/config/database.json`.
 ![](/6.jpg)
 
 ## Create Accessory Page View
-![](/1.jpg)
+![](/7.jpg)
 
 ##  Attach new accessory view
 ![](/9.jpg)
-
-##  This cube has no accessories yet...
-![](/8.jpg)
-
-##  Not Found Page
-![](/6.jpg)
 
 ## Updated Details Page View
 ![](/10.jpg)
@@ -57,6 +51,8 @@ Store the cubes inside a`/config/database.json`.
 
 ## This cube has no accessories yet...
 ![](/14.jpg)
+![](/8.jpg)
+
 
 
 
