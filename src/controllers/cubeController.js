@@ -10,11 +10,17 @@ exports.getCreateCube = (req, res) => {//const getCreateCube = (req, res) =>
 exports.postCreateCube = async (req, res) => {
     // console.log(req.body);//Object на данните от url
 
-    //save cube
-    const { name, description, imageUrl, difficultyLevel } = req.body
-    let cube = new Cube({ name, description, imageUrl, difficultyLevel });
-    await cube.save();//запазва в db
+    try {
+    
+        //save cube
+        const { name, description, imageUrl, difficultyLevel } = req.body
+        let cube = new Cube({ name, description, imageUrl, difficultyLevel });
+        await cube.save();//запазва в db
 
+    } catch (err) {
+        console.log(err.message);
+        return res.redirect('/404');
+    }
     //redirect
     res.redirect('/');
 };
