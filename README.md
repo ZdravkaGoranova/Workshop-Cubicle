@@ -1,11 +1,8 @@
-
-
-
-# Workshop Project : Cubicle  ![CryAboutItRubiksCubeGIF](https://user-images.githubusercontent.com/106737347/215473675-dc45e64a-b079-472f-8956-53a64e28a4ea.gif)
+ ![CryAboutItRubiksCubeGIF](https://user-images.githubusercontent.com/106737347/215473675-dc45e64a-b079-472f-8956-53a64e28a4ea.gif)
+# Workshop Project : Cubicle  
 
 "Cubicle" is a place, where you can browse some of the most popular Rubik cubes in the world and add some new cubes that you have discovered. 
-## Installing Dependencies
-
+## Installing Dependencies 
  - [MongoDB Download Center](https://www.mongodb.com/download-center)
  - [MongoDB Node.JS Driver](https://www.npmjs.com/package/mongodb)
  - [Mongoose](https://www.npmjs.com/package/mongoose)
@@ -13,10 +10,6 @@
 ## Database Connection with ExpressJS
 
 The `index.js file` should require the exported mongoose connection (database) before the server starts. 
-
-## Storage
-
-Store the cubes inside a`/config/database.json`.
 
 # Routes views
 
