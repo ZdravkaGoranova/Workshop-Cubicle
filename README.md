@@ -19,19 +19,48 @@ Store the cubes inside a`/config/database.json`.
 # Routes views
 
 ## Home Page
-![](/7.jpg)
+![](/1.jpg)
+
 ## About Page
-
 ![](/2.jpg)
-## Create Page
 
+## Create Cube  Page
 ![](/3.jpg)
+
 ## Details Page
-
 ![](/4.jpg)
+
 ## Search Page
-
 ![](/5.jpg)
-##  Not Found Page
 
+##  Not Found Page
 ![](/6.jpg)
+
+## Create Accessory Page View
+![](/1.jpg)
+
+##  Attach new accessory view
+![](/9.jpg)
+
+##  This cube has no accessories yet...
+![](/8.jpg)
+
+##  Not Found Page
+![](/6.jpg)
+
+## Updated Details Page View
+![](/10.jpg)
+![](/12.jpg)
+
+## This cube has all available accessories 
+![](/13.jpg)
+
+## This cube has no accessories yet...
+![](/14.jpg)
+
+
+
+
+
+
+
