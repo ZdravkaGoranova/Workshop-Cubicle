@@ -15,7 +15,15 @@ const cubeShema = new mongoose.Schema({//const cubeShema = new Schema
     imageUrl: {
         type: String,
         required: true,
-        // http / https validation:,
+        match: [/^http[s]?:\/\//, 'Invalid URL'], // http / httpsvalidation 
+        
+        //или втори  вариянт на match: 
+        // validate: {
+        //     validator: function (value) {
+        //         return value.startsWith('http://') || value.startsWith('https://')
+        //     }
+        //message:'URL is invalid!'
+        // }
     },
     difficultyLevel: {
         type: String,
@@ -25,11 +33,13 @@ const cubeShema = new mongoose.Schema({//const cubeShema = new Schema
     },
     accessories: [{
         type: mongoose.Types.ObjectId,//всяко objectid ще сочи към референция Accessory
-        ref:'Accessory'//името на модела към който ще сочи референцията
+        ref: 'Accessory'//името на модела към който ще сочи референцията
     }]
-
-
 });
+
+
+
+
 
 const Cube = new mongoose.model('Cube', cubeShema);//const Cube = model
 

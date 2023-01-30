@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const accessorySchema = new mongoose.Schema({
-    
+
     name: {
         type: String,
         required: true
@@ -9,14 +9,12 @@ const accessorySchema = new mongoose.Schema({
     imageUrl: {
         type: String,
         required: true,
-        // http / https validation
+        match: [/^http[s]?:\/\//, 'Invalid URL'], // http / httpsvalidation
     },
     description: {
         type: String,
         required: true,
         maxlength: 50,
-        //   http / https validation,
-
     },
     //cubes: (ObjectId, ref Cubes Model)
 });

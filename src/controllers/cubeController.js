@@ -36,8 +36,8 @@ exports.getDetails = async (req, res) => {
 exports.getAttachAccessory = async (req, res) => {
 
     const cube = await Cube.findById(req.params.cubeId).lean();
-    const accessories = await Accessory.find().lean();
-
+    const accessories = await Accessory.find({ _id: { $nin: cube.accessories } }).lean();//{ $nin: cube.accessories } Matches none of the values specified in an array.
+    //намерими всички accessory на които ид-ти им  не се намира в текущия куб в неговите accessories
     res.render('cube/attach', { cube, accessories });
 }
 

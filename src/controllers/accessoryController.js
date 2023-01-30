@@ -10,11 +10,15 @@ router.get('/create', (req, res) => {
 router.post('/create', async (req, res) => {
     const { name, description, imageUrl } = req.body;
 
-    const accessoryDb = await Accessory.create({ name, description, imageUrl })
-    //или  
-    //let аccessory = new Accessory({ name, description, imageUrl })
-    //await аccessory.save();//запазва в db
-
+    try {
+        const accessoryDb = await Accessory.create({ name, description, imageUrl })
+        //или  
+        //let аccessory = new Accessory({ name, description, imageUrl })
+        //await аccessory.save();//запазва в db
+    } catch (err) {
+        console.log(err.message);
+        return res.redirect('/404');
+    }
     res.redirect('/');
 });
 
