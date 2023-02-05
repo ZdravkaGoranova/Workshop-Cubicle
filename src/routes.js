@@ -1,5 +1,5 @@
 const router = require('express').Router();
-// const express = require('express');
+// или const express = require('express');
 // const Router = express.Router;
 // const router = Router();
 
@@ -14,15 +14,16 @@ router.get('/', homeController.getHomePage
     // res.render('index');//  res.render('home', { layout: false })когато не сме настойли layout
     //}
 );
-router.get('/about', homeController.getAboutPage);
-// (req, res) => {res.render('about');});
+router.get('/about', homeController.getAboutPage);// (req, res) => {res.render('about');});
 router.get('/404', homeController.getErrorPage);
 
 
-router.get('/login',authController);//router.use('/',authController);
+router.get('/login', authController);//router.use('/',authController);
 
-
-router.get('/register',authController);//router.use('/',authController);
+router.use('/', authController);
+//Ако използваме router.use('/',authController); няма нужда от следните два реда
+// router.get('/register',authController);
+// router.post('/register',authController);
 
 router.get('/cubes/create', cubeControler.getCreateCube);// app.get('/create', (req, res) => { res.render('create'); });
 router.post('/cubes/create', cubeControler.postCreateCube);

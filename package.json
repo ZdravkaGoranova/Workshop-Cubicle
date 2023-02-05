@@ -6,7 +6,7 @@
   "scripts": {
     "prod": " SET node_env=production&&node ./src/index.js",
     "dev": "nodemon ./src/index.js",
-    "start":"npm run dev"
+    "start": "npm run dev"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
     "mongoose": "^6.9.0"
