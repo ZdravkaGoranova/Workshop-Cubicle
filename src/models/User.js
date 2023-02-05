@@ -26,7 +26,13 @@ userShema.pre('save', function (next) {
             next()
         })
     // this е текущата инстанция на модела/текущия user
-})
+});
+userShema.method('validatePassword', function (password) {
+
+    return bcrypt.compare(password, this.password);
+});
+
+
 
 const User = mongoose.model('User', userShema);//създава група в базата данни
 

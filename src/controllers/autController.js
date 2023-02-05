@@ -7,9 +7,20 @@ const authService = require('../services/authService.js')
 router.get('/login', (req, res) => {
     res.render('auth/login')
 })
-// router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
 
-// })
+    try {
+        const user = await authService.login(username, password);
+        console.log(user);
+    }
+    catch (err) {
+        console.log(err);
+        return res.redirect("/");
+    }
+    res.redirect("/");
+})
+
 
 router.get('/register', (req, res) => {
     res.render('auth/register')
@@ -32,6 +43,7 @@ router.post('/register', async (req, res) => {
 
     res.redirect("/login");
 })
+
 
 router.get('/logout', (req, res) => {
 
