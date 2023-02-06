@@ -35,6 +35,7 @@ router.get('/cubes/:cubeId/edit', cubeControler.getEditCube);
 router.post('/cubes/:cubeId/edit', cubeControler.postEditCube);
 
 router.get('/cubes/:cubeId/delete', cubeControler.getDeleteCube);
+router.post('/cubes/:cubeId/delete', cubeControler.postDeleteCube);
 
 router.get('/cubes/:cubeId/attach', cubeControler.getAttachAccessory);
 router.post('/cubes/:cubeId/attach', cubeControler.postAttachAccessory);

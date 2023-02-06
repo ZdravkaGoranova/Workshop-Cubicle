@@ -10,7 +10,7 @@ const cubeUtils = require('../utils/cubeUtils.js');
 exports.getCreateCube = (req, res) => {//const getCreateCube = (req, res) =>
     console.log(req.user);
 
-    res.render('create');
+    res.render('cube/create');
 };
 exports.postCreateCube = async (req, res) => {
     // console.log(req.body);//Object на данните от url
@@ -97,7 +97,11 @@ exports.getDeleteCube = async (req, res) => {
     res.render('cube/delete', { cube, difficultyLevels });
 }
 
+exports.postDeleteCube = async (req, res) => {
+    await cubeService.delete(req.params.cubeId);//връща документ
 
+    res.redirect('/');
+}
 
 
 
