@@ -63,22 +63,38 @@ exports.postAttachAccessory = async (req, res) => {
     res.redirect(`/cubes/${cube._id}/details`);
 };
 
+
 exports.getEditCube = async (req, res) => {
 
     const cube = await cubeService.getOne(req.params.cubeId);//връща документ .lean()ako нема в exports.getOne = (cubeId) => Cube.findById(cubeId).lean();
     const difficultyLevels = cubeUtils.generateDifficultyLevels(cube.difficultyLevel);
 
-    res.render('cube/edit', { cube,difficultyLevels });
+    res.render('cube/edit', { cube, difficultyLevels });
 };
-// exports.postEditCube =  (req, res) => {
+exports.postEditCube = async (req, res) => {//трябва да  put заявка , но    <form method="POST"> не поддържа put
+    const { name, description, imageUrl, difficultyLevel } = req.body
 
-// }
+
+    try {
+        await cubeService.update(req.params.cubeId, {
+            name,
+            description,
+            imageUrl,
+            difficultyLevel
+        })
+    } catch (err) {
+        console.log(err.message);
+    }
+    res.redirect(`/cubes/${req.params.cubeId}/details`);
+};
+
+
 
 exports.getDeleteCube = async (req, res) => {
     const cube = await cubeService.getOne(req.params.cubeId);//връща документ
     const difficultyLevels = cubeUtils.generateDifficultyLevels(cube.difficultyLevel);
- 
-    res.render('cube/delete', { cube,difficultyLevels });
+
+    res.render('cube/delete', { cube, difficultyLevels });
 }
 
 
