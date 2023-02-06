@@ -5,6 +5,9 @@ const cookieParser = require('cookie-parser');
 
 const routes = require('./routes.js');
 const config = require('./config');//Ако файла се казва различно име от index.js, примерно config.js->require('./config/config.js');
+
+const authMiddleware = require('./middlewares/authMiddleware.js')
+
 const setupViewEngine = require('./config/viewEngine.js');
 const initDataBase = require('./config/dataBaseInit.js')
 
@@ -17,7 +20,9 @@ app.use(express.static('src/public'));//проверяваме дали рабо
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));//връща middleware,който ни парсва urlcoded bodies 
 //прочита данните от req и ще ги парсва за всеки req;
+app.use(authMiddleware.authentication);//след  cookieParser()) и express.urlencoded( и преди routes;Всички req минават от тук
 app.use(routes);//за всички заявки използвай този router
+
 
 initDataBase()
     .then(() => app.listen(config.PORT, () => console.log(`Server is running on port ${config.PORT}...`)))
