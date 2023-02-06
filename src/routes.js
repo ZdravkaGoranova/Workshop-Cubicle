@@ -32,6 +32,9 @@ router.post('/cubes/create', isAuthenticated, cubeControler.postCreateCube);
 
 router.get('/cubes/:cubeId/details', cubeControler.getDetails);//път към детайла
 
+router.get('/cubes/:cubeId/edit', cubeControler.getEditCube);
+router.get('/cubes/:cubeId/deleted', cubeControler.getDeleteCube);
+
 router.get('/cubes/:cubeId/attach', cubeControler.getAttachAccessory);
 router.post('/cubes/:cubeId/attach', cubeControler.postAttachAccessory);
 
