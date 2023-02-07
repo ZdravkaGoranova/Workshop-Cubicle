@@ -31,8 +31,8 @@ router.get('/cubes/create', isAuthenticated, cubeControler.getCreateCube);// app
 router.post('/cubes/create', isAuthenticated, cubeControler.postCreateCube);
 
 router.get('/cubes/:cubeId/details', cubeControler.getDetails);//път към детайла
-router.get('/cubes/:cubeId/edit', cubeControler.getEditCube);
-router.post('/cubes/:cubeId/edit', cubeControler.postEditCube);
+router.get('/cubes/:cubeId/edit',isAuthenticated, cubeControler.getEditCube);
+router.post('/cubes/:cubeId/edit',isAuthenticated ,cubeControler.postEditCube);
 
 router.get('/cubes/:cubeId/delete', cubeControler.getDeleteCube);
 router.post('/cubes/:cubeId/delete', cubeControler.postDeleteCube);
