@@ -4,7 +4,7 @@ const Accessory = require('../models/Accessory.js');
 
 const db = require('../db.json');
 
-const cubeService = require('../services/cubeService.js')
+const cubeService = require('../services/cubeService.js');
 const cubeUtils = require('../utils/cubeUtils.js');
 
 exports.getCreateCube = (req, res) => {//const getCreateCube = (req, res) =>
@@ -18,10 +18,17 @@ exports.postCreateCube = async (req, res) => {
 
     try {
         //save cube
-        const { name, description, imageUrl, difficultyLevel } = req.body
-        let cube = new Cube({ name, description, imageUrl, difficultyLevel });
+        const { name, description, imageUrl, difficultyLevel } = req.body;
 
-        console.log(typeof cube.difficultyLevel)
+        let cube = new Cube({
+            name,
+            description,
+            imageUrl,
+            difficultyLevel,
+            owner: req.user._id,
+        });
+
+        //console.log(typeof cube.difficultyLevel)
         await cube.save();//запазва в db
 
     } catch (err) {
@@ -37,13 +44,20 @@ exports.getDetails = async (req, res) => {
     //     return res.redirect('/404');
     // }
 
-    const cube = await Cube.findById(req.params.cubeId).populate('accessories').lean()
+    const cube = await Cube.findById(req.params.cubeId)
+        .populate('accessories')
+        .lean();
     //взимаме даден куб с данните за аксецуарите му
 
     if (!cube) {
         return res.redirect('/404');
     }
-    res.render('cube/details', { cube });
+
+    const isOwner = cubeUtils.isOwner(req.user, cube);
+    //cube.owner == req.user._id;
+    //равни ли са?cube.owner =objectid,req.user._id=string
+
+    res.render('cube/details', { cube, isOwner });
 };
 
 exports.getAttachAccessory = async (req, res) => {
@@ -71,6 +85,10 @@ exports.getEditCube = async (req, res) => {
     const cube = await cubeService.getOne(req.params.cubeId);//връща документ .lean()ako нема в exports.getOne = (cubeId) => Cube.findById(cubeId).lean();
     const difficultyLevels = cubeUtils.generateDifficultyLevels(cube.difficultyLevel);
 
+    if (!cubeUtils.isOwner(req.user, cube)) {
+        return res.redirect('/404');
+    }
+
     res.render('cube/edit', { cube, difficultyLevels });
 };
 exports.postEditCube = async (req, res) => {//трябва да  put заявка , но    <form method="POST"> не поддържа put
@@ -90,14 +108,16 @@ exports.postEditCube = async (req, res) => {//трябва да  put заявк�
 };
 
 
-
 exports.getDeleteCube = async (req, res) => {
     const cube = await cubeService.getOne(req.params.cubeId);//връща документ
 
-
-
     const difficultyLevels = cubeUtils.generateDifficultyLevels(cube.difficultyLevel);
-    console.log(difficultyLevels)
+    console.log(difficultyLevels);
+
+    if (!cubeUtils.isOwner(req.user, cube)) {
+        return res.redirect('/404');
+    }
+
     res.render('cube/delete', { cube, difficultyLevels });
 }
 
