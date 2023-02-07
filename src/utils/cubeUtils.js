@@ -10,6 +10,7 @@ exports.generateDifficultyLevels = function (currentLevel) {
 
     const result = difficultyLevels.map(x => x.key === currentLevel ? { ...x, selected: true } : x);
 
+    //console.log(result)
     return result;
 };
 

@@ -20,6 +20,8 @@ exports.postCreateCube = async (req, res) => {
         //save cube
         const { name, description, imageUrl, difficultyLevel } = req.body
         let cube = new Cube({ name, description, imageUrl, difficultyLevel });
+
+        console.log(typeof cube.difficultyLevel)
         await cube.save();//запазва в db
 
     } catch (err) {
@@ -74,7 +76,6 @@ exports.getEditCube = async (req, res) => {
 exports.postEditCube = async (req, res) => {//трябва да  put заявка , но    <form method="POST"> не поддържа put
     const { name, description, imageUrl, difficultyLevel } = req.body
 
-
     try {
         await cubeService.update(req.params.cubeId, {
             name,
@@ -92,8 +93,11 @@ exports.postEditCube = async (req, res) => {//трябва да  put заявк�
 
 exports.getDeleteCube = async (req, res) => {
     const cube = await cubeService.getOne(req.params.cubeId);//връща документ
-    const difficultyLevels = cubeUtils.generateDifficultyLevels(cube.difficultyLevel);
 
+
+
+    const difficultyLevels = cubeUtils.generateDifficultyLevels(cube.difficultyLevel);
+    console.log(difficultyLevels)
     res.render('cube/delete', { cube, difficultyLevels });
 }
 

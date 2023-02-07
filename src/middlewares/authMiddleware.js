@@ -12,6 +12,9 @@ exports.authentication = async (req, res, next) => {
             req.user = decodedToken; //слагаме допълнителна информация за user
             req.isAuthenticated = true;
 
+            res.locals.user = decodedToken.username;//handelbarse прочита тези настроики
+            res.locals.isAuthenticated = true;
+
         } catch (err) {
             console.log(err.message);
 
