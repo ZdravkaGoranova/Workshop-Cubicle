@@ -3,4 +3,4 @@ module.exports = class AppError {
         this.message = message;
         this.data = data;
     }
-}
+};
