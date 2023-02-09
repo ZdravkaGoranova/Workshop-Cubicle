@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const User = require('../models/User.js');
 const authService = require('../services/authService.js')
-
+const { parseMongooseError } = require('../utils/errorUtils.js')
 
 router.get('/login', (req, res) => {
     res.render('auth/login')
@@ -46,15 +46,16 @@ router.post('/register', async (req, res, next) => {
         const user = await authService.register(username, password);
         console.log(user);
     } catch (err) {
-       // console.log(err.errors);
+        // console.log(err.errors);
         //console.log(err.message);
         //const errors = err.errors[0];
-        const errors = Object.keys(err.errors).map(key => err.errors[key].message);
-       // console.log(errors);
-        return res.render('auth/register', {err:errors[0]})
+
+        const errors = parseMongooseError(err)// Object.keys(err.errors).map(key => err.errors[key].message);
+
+        // console.log(errors);
+        return res.render('auth/register', { err: errors[0] })
         //  return next(err);
     }
-
 
     res.redirect("/login");
 })

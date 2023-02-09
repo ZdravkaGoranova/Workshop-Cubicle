@@ -43,8 +43,6 @@ userShema.method('validatePassword', function (password) {
     return bcrypt.compare(password, this.password);
 });
 
-
-
 const User = mongoose.model('User', userShema);//създава група в базата данни
 
 module.exports = User;
