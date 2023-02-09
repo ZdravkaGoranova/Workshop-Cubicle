@@ -17,7 +17,7 @@ exports.login = async (username, password) => {
 
     //   if (!user ||!isValid или if (!(user ||!isValid))
     console.log(isValid)
-    if (!user || user === null) {
+    if (!user ) {
 
         throw new AppError('Invalid username!', { user })
 

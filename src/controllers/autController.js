@@ -18,9 +18,7 @@ router.post('/login', async (req, res) => {
     catch (err) {
         // console.log(err);
         console.log(err.message);
-
         return res.render('auth/login', { error: err.message })
-
     }
     res.redirect("/");
 })
@@ -40,11 +38,23 @@ router.post('/register', async (req, res, next) => {
     const existingUser = await authService.getUserByUsername(username)
 
     if (existingUser) {
-        return res.status(404).end();//res.redirect(404)
+        // return next(new Error(`Password missmatch!`))
+        return res.render('auth/register', { error: 'User alredy exist!' })
     }
-    const user = await authService.register(username, password);
 
-    console.log(user);
+    try {
+        const user = await authService.register(username, password);
+        console.log(user);
+    } catch (err) {
+       // console.log(err.errors);
+        //console.log(err.message);
+        //const errors = err.errors[0];
+        const errors = Object.keys(err.errors).map(key => err.errors[key].message);
+       // console.log(errors);
+        return res.render('auth/register', {err:errors[0]})
+        //  return next(err);
+    }
+
 
     res.redirect("/login");
 })
